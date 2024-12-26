@@ -35,7 +35,7 @@ h1 {
 }
 
 img {
-    width: 48vw; /* Responsive width */
+    width: 70vh; /* Responsive width */
     height: auto;
     padding: 10px;
     object-fit: contain; /* Ensures image maintains aspect ratio */
