@@ -1,147 +1,97 @@
-@font-face {
-    font-family: 'InterTight';
-    src: url('assets/Inter-VariableFont_slnt,wght.ttf') format('truetype');
-    font-weight: normal;
-}
-
-html, body {
-    font-family: 'InterTight', sans-serif;
-    margin: 0;
-    text-align: center;
-    background: #c4e0ff;
-    color: #e37d54;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    padding: 4px;
-    box-sizing: border-box;
-}
-
-canvas {
-    display: none;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+.investigation-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: #1a1a1a;
-    font-family: 'Arial', sans-serif;
-    overflow: hidden;
+    padding: 20px;
+    touch-action: none;
 }
 
-.main-container {
-    width: 100vw;
-    height: 100vh;
+.artwork-frame {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
     position: relative;
 }
 
-.magnifying-glass {
-    cursor: grab;
-    position: fixed;
-    width: 100px;
-    height: 100px;
-    z-index: 1000;
-    animation: float 3s infinite ease-in-out;
-}
-
-.magnifying-glass:active {
-    cursor: grabbing;
-}
-
-.tool-icon {
+.artwork {
     width: 100%;
-    height: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.1);
     object-fit: contain;
+}
+
+.magnifying-glass {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    cursor: grab;
+    z-index: 1000;
+    touch-action: none;
+}
+
+@media (min-width: 768px) {
+    .magnifying-glass {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .artwork-frame {
+        max-width: 800px;
+    }
 }
 
 .glass-effect {
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px) brightness(1.2);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(1px) brightness(1.3);
     pointer-events: none;
-    transform: translate(-25%, -25%);
+    transform: translate(-20%, -20%);
 }
 
-.surreal-element {
-    position: absolute;
-    pointer-events: none;
-}
-
-.clock {
-    animation: rotate 20s infinite linear;
-}
-
-.butterfly {
-    animation: flutter 8s infinite ease-in-out;
-}
-
-.clouds {
-    animation: float 15s infinite ease-in-out;
-}
-
-.detective-notes {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    max-width: 500px;
-}
-
-.notebook-paper {
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transform: rotate(-1deg);
+.response-section {
+    width: 90%;
+    max-width: 600px;
+    margin-top: 20px;
 }
 
 .magic-input {
     width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    border: 2px dashed #6b4fbb;
-    border-radius: 8px;
-    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #4a4a4a;
+    background: rgba(255,255,255,0.9);
+    margin-bottom: 15px;
     font-size: 16px;
-    background: rgba(107, 79, 187, 0.1);
+    min-height: 100px;
+    resize: vertical;
 }
 
-.submit-btn {
-    background: linear-gradient(45deg, #6b4fbb, #9f79ee);
+.reveal-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
     border: none;
-    padding: 12px 24px;
+    padding: 15px 30px;
     border-radius: 25px;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.3s;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+@media (min-width: 768px) {
+    .reveal-btn {
+        width: auto;
+    }
 }
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes flutter {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(20px, -20px) rotate(10deg); }
-    75% { transform: translate(-20px, 20px) rotate(-10deg); }
-}
-
