@@ -24,91 +24,124 @@ canvas {
     display: none;
 }
 
-p {
-    width: 70vw;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-h1 {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-img {
-    width: 60vh; /* Responsive width */
-    height: auto;
+body {
+    background: #1a1a1a;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.magnifying-glass {
+    cursor: grab;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+    animation: float 3s infinite ease-in-out;
+}
+
+.magnifying-glass:active {
+    cursor: grabbing;
+}
+
+.tool-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.glass-effect {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px) brightness(1.2);
+    pointer-events: none;
+    transform: translate(-25%, -25%);
+}
+
+.surreal-element {
+    position: absolute;
+    pointer-events: none;
+}
+
+.clock {
+    animation: rotate 20s infinite linear;
+}
+
+.butterfly {
+    animation: flutter 8s infinite ease-in-out;
+}
+
+.clouds {
+    animation: float 15s infinite ease-in-out;
+}
+
+.detective-notes {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 500px;
+}
+
+.notebook-paper {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform: rotate(-1deg);
+}
+
+.magic-input {
+    width: 100%;
+    min-height: 100px;
     padding: 10px;
-    object-fit: contain; /* Ensures image maintains aspect ratio */
+    border: 2px dashed #6b4fbb;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 16px;
+    background: rgba(107, 79, 187, 0.1);
 }
 
-button {
-    padding: 10px 20px;
-    background: #FAF9F189;
+.submit-btn {
+    background: linear-gradient(45deg, #6b4fbb, #9f79ee);
     border: none;
-    border-radius: 12px;
-    font-size: 2vw;
-    color: #e37d54;
+    padding: 12px 24px;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
-button:hover {
-    color: #FAF9F1;
-    background: #e37d54;
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
-button.active {
-    color: #FAF9F1;
-    background: #e37d54;
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: center;
+@keyframes flutter {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(20px, -20px) rotate(10deg); }
+    75% { transform: translate(-20px, 20px) rotate(-10deg); }
 }
 
-@media screen and (max-width: 1000px) {
-    .buttons {
-        flex-wrap: wrap;
-        padding: 0 20px;
-        justify-content: center;
-    }
-
-    p {
-        width: 90%;
-    }
-
-    img {
-        width: 90%;
-        max-width: 100%; /* Prevents overflow */
-    }
-
-    button {
-        font-size: 4vw;
-        padding: 12px 24px;
-    }
-
-    h1 {
-        font-size: 6vw;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    p {
-        width: 95%;
-    }
-
-    img {
-        width: 95%;
-    }
-
-    button {
-        font-size: 5vw;
-        padding: 14px 28px;
-    }
-
-    h1 {
-        font-size: 7vw;
-    }
-}
