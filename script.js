@@ -49,18 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Reveal functionality
-    const revealBtn = document.querySelector('.reveal-btn');
-    const input = document.querySelector('.magic-input');
-    const revealedAnswer = document.querySelector('.revealed-answer');
+const revealBtn = document.querySelector('.reveal-btn');
+const input = document.querySelector('.magic-input');
+const revealedAnswer = document.querySelector('.revealed-answer');
 
-    revealBtn.addEventListener('click', () => {
-        revealedAnswer.textContent = input.value;
-        revealedAnswer.classList.add('reveal-animation');
-        
-        // Add sparkle effect
-        const sparkles = document.createElement('div');
-        sparkles.classList.add('sparkles');
-        revealBtn.appendChild(sparkles);
-        setTimeout(() => sparkles.remove(), 1000);
-    });
+revealBtn.addEventListener('click', () => {
+    // Remove existing animation class
+    revealedAnswer.classList.remove('reveal-animation');
+    
+    // Force a reflow to restart animation
+    void revealedAnswer.offsetWidth;
+    
+    // Update content and add animation
+    revealedAnswer.textContent = input.value;
+    revealedAnswer.classList.add('reveal-animation');
+});
+
 });
