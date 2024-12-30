@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
-    <h1>¡Un armario lleno de sorpresas!</h1>
-    <p>Entra a este mundo mágico. Da un paso y camina por el camino  que te llevarán a lugares increíbles. Sube a la nave mágica, agárrate fuerte a las velas y deja que tu imaginación te lleve a donde quieras.</p>
-    <div>
-    <img src="https://raw.githubusercontent.com/CamilleJCC/mundo-magico/refs/heads/main/assets/7..webp">
-      </div>
-   <p>¿Qué crees que encontrarás al final de esas escaleras? ¿A dónde te llevará esta nave voladora, guiada por lunas y aves mágicas? ¿Es esto un sueño o es real?</p>
-  </head>
-  <body>
-    <main>
-    </main>
-    <script src="sketch.js"></script>
-  </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Mágico del Arte</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="investigation-tools">
+            <div class="magnifying-glass" draggable="true">
+                <img src="assets/magnifying-glass.png" class="tool-icon">
+                <div class="glass-effect"></div>
+            </div>
+        </div>
+
+        <div class="artwork-container">
+            <img src="assets/floating-clock.png" class="surreal-element clock">
+            <img src="assets/butterfly-eye.png" class="surreal-element butterfly">
+            <img src="assets/cloud-stairs.png" class="surreal-element clouds">
+            
+            <div class="investigation-area">
+                <div class="zoom-area"></div>
+                <div class="clue-spots"></div>
+            </div>
+        </div>
+
+        <div class="detective-notes">
+            <div class="notebook-paper">
+                <h3>🔍 Tu Descubrimiento Surrealista</h3>
+                <textarea class="magic-input" placeholder="¿Qué elementos mágicos encontraste en la obra?"></textarea>
+                <button class="submit-btn">
+                    <span>¡Revelar el misterio!</span>
+                    <div class="magical-sparkles"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
