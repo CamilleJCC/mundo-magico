@@ -1,52 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     const magnifier = document.querySelector('.magnifying-glass');
-    let isDragging = false;
-    let startX, startY, initialX, initialY;
-
-    // Touch events
-    magnifier.addEventListener('touchstart', (e) => {
-        const touch = e.touches[0];
-        startDrag(touch.clientX, touch.clientY);
-    });
-
-    magnifier.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        const touch = e.touches[0];
-        moveMagnifier(touch.clientX, touch.clientY);
-    });
-
-    magnifier.addEventListener('touchend', stopDrag);
-
-    // Mouse events
-    magnifier.addEventListener('mousedown', (e) => {
-        startDrag(e.clientX, e.clientY);
-    });
-
-    document.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        moveMagnifier(e.clientX, e.clientY);
-    });
-
-    document.addEventListener('mouseup', stopDrag);
-
-    function startDrag(x, y) {
-        isDragging = true;
-        startX = x;
-        startY = y;
-        initialX = magnifier.offsetLeft;
-        initialY = magnifier.offsetTop;
+    const artwork = document.querySelector('.artwork');
+    const glassEffect = document.querySelector('.glass-effect');
+    
+    function updateZoom(x, y) {
+        const rect = artwork.getBoundingClientRect();
+        const xPercent = (x - rect.left) / rect.width * 100;
+        const yPercent = (y - rect.top) / rect.height * 100;
+        
+        glassEffect.style.backgroundImage = `url(${artwork.src})`;
+        glassEffect.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+        glassEffect.style.backgroundSize = '200%';
     }
-
-    function moveMagnifier(x, y) {
-        const dx = x - startX;
-        const dy = y - startY;
-        magnifier.style.left = `${initialX + dx}px`;
-        magnifier.style.top = `${initialY + dy}px`;
+    
+    function handleMove(e) {
+        const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        const y = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+        updateZoom(x, y);
     }
+    
+    magnifier.addEventListener('mousemove', handleMove);
+    magnifier.addEventListener('touchmove', handleMove);
+});
 
-    function stopDrag() {
-        isDragging = false;
-    }
 
     // Reveal functionality
 const revealBtn = document.querySelector('.reveal-btn');
