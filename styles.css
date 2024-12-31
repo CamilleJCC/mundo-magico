@@ -30,8 +30,10 @@
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    position: relative;
+    position: fixed;
     cursor: none;
+    top: 0px;
+    right: 80px;
 }
 
 h1 {
