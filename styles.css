@@ -13,7 +13,7 @@
 .investigation-container {
   min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-end;
     background: #faf9f1;
     padding: 20px;
