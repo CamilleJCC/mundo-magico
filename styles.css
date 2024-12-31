@@ -29,13 +29,13 @@
     cursor: none;
 }
 p {
-      text-align: left;
-    font-size: 20px;
-    width: 23%;
+ text-align: left;
+    font-size: 18px;
+    width: 19%;
     padding-bottom: 20px;
     position: absolute;
-    left: 158px;
-    bottom: 50%;
+    left: 154px;
+    bottom: 41%;
  }
 
 .artwork {
