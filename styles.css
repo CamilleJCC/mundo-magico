@@ -89,6 +89,7 @@ p {
     height: 58px;
     resize: none;
     font-family: 'InterTight', sans-serif;
+    overflow: hidden;
 }
 
 .reveal-btn {
