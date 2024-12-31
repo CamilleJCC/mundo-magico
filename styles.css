@@ -191,6 +191,7 @@ p {
 
     .left-col {
         width: 50%;
+       padding-bottom: 0px;
     }
 
     h1 {
