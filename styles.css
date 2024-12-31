@@ -24,7 +24,7 @@
 .artwork-frame {
     width: 90%;
     max-width: 500px;
-    margin: 20px auto;
+    margin: 0 auto;
     position: relative;
     cursor: none;
 }
