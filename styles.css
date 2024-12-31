@@ -29,10 +29,13 @@
     cursor: none;
 }
 p {
-  text-align: center;
-  font-size: 23px;
-  width: 40%;
-  padding-bottom:20px;
+      text-align: left;
+    font-size: 20px;
+    width: 23%;
+    padding-bottom: 20px;
+    position: absolute;
+    left: 158px;
+    bottom: 50%;
  }
 
 .artwork {
