@@ -59,25 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function handleReveal() {
-        if (input.value.trim()) {
-            const answersContainer = document.querySelector('.answers-container');
-            
-            // Create new answer element
-            const newAnswer = document.createElement('div');
-            newAnswer.className = 'revealed-answer reveal-animation';
-            newAnswer.textContent = input.value;
-            
-            // Add to container
-            answersContainer.appendChild(newAnswer);
-            
-            // Create sparkles
-            createSparkles(newAnswer);
-            
-            // Clear input
-            input.value = '';
-        }
+function handleReveal() {
+    if (input.value.trim()) {
+        const answersContainer = document.querySelector('.answers-container');
+        
+        // Create new answer element with background and styling
+        const newAnswer = document.createElement('div');
+        newAnswer.className = 'revealed-answer reveal-animation';
+        newAnswer.textContent = input.value;
+        newAnswer.style.background = '#fff'; // Adding white background for visibility
+        
+        // Add to container
+        answersContainer.appendChild(newAnswer);
+        
+        // Create sparkles
+        createSparkles(newAnswer);
+        
+        // Clear input
+        input.value = '';
     }
+}
 
     // Reveal button event
     revealBtn.addEventListener('click', handleReveal);
