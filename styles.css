@@ -112,7 +112,7 @@ p {
     transform-origin: center;
     font-size: 23px;
     width: fit-content;
-    flex: 0 1 300px; /* This allows multiple answers to sit side by side */
+    flex: 0 1 auto; /* This allows multiple answers to sit side by side */
 
 }
 .answers-container {
