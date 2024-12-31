@@ -40,10 +40,10 @@ h1 {
     margin-bottom: 20px;
 }
 p {
- text-align: left;
+    text-align: left;
     font-size: 18px;
-    padding-bottom: 20px;
-    padding-right:20px;
+    padding-bottom: 44px;
+    padding-right: 20em;
  }
 
 .artwork {
