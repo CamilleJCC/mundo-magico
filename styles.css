@@ -11,14 +11,15 @@
 }
 
 .investigation-container {
-    min-height: 100vh;
+  min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-end;
     background: #faf9f1;
     padding: 20px;
     touch-action: none;
-  color: #333333;
+    color: #333333;
+    flex-wrap: nowrap;
 }
 
 .artwork-frame {
