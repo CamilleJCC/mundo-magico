@@ -102,7 +102,7 @@ p {
 }
 
 .revealed-answer {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     padding: 20px;
     border-radius: 10px;
     font-family: 'InterTight', sans-serif;
