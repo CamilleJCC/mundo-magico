@@ -58,6 +58,35 @@ p {
     object-fit: contain;
     margin-bottom: -19px;
 }
+.response-section {
+    width: 90%;
+    max-width: 600px;
+}
+
+.magic-input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #4a4a4a;
+    background: #c4e0ff;
+    margin-bottom: 15px;
+    font-size: 20px;
+    height: 58px;
+    resize: none;
+    font-family: 'InterTight', sans-serif;
+}
+
+.reveal-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #c4e0ff, #b5f0de);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    color: #333333;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
 
 /* Rest of your existing styles remain the same */
 
@@ -109,5 +138,12 @@ p {
 
     .revealed-answer {
         font-size: 18px;
+    }
+      .reveal-btn {
+        width: auto;
+    }
+    
+    .response-section {
+        width: 100%;
     }
 }
