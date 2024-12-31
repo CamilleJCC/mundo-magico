@@ -21,8 +21,12 @@
     color: #333333;
     flex-wrap: nowrap;
 }
+
 .left-col{
-    width:50%;}
+    width:50%;
+padding-bottom: 40px;
+}
+
 .artwork-frame {
     width: 90%;
     max-width: 500px;
