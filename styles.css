@@ -82,7 +82,7 @@
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
-    font-family: 'InterTight', monospace;
+    font-family: 'InterTight', sans-serif;
     position: relative;
     display: none;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
