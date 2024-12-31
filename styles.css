@@ -28,6 +28,12 @@
     position: relative;
     cursor: none;
 }
+p {
+  text-align: center;
+  font-size: 23px;
+  width: 40%;
+  padding-bottom:20px;
+ }
 
 .artwork {
     width: 100%;
