@@ -3,11 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const artwork = document.querySelector('.artwork');
     const revealBtn = document.querySelector('.reveal-btn');
     const input = document.querySelector('.magic-input');
+    const answersContainer = document.querySelector('.answers-container');
 
-    // Add answers container to DOM
-    const responseSection = document.querySelector('.response-section');
-    responseSection.innerHTML += '<div class="answers-container"></div>';
-    
     function updateZoom(e) {
         const rect = artwork.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -31,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Magnifying glass events
     artwork.addEventListener('mousemove', updateZoom);
     artwork.addEventListener('mouseleave', () => {
         magnifier.style.display = 'none';
@@ -44,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const sparkle = document.createElement('div');
             sparkle.className = 'sparkle';
             
-            // Random positions around the element
             const x = Math.random() * rect.width;
             const y = Math.random() * rect.height;
             
@@ -54,36 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
             
             element.appendChild(sparkle);
             
-            // Remove sparkle after animation
             setTimeout(() => sparkle.remove(), 1500);
         }
     }
 
-function handleReveal() {
-    if (input.value.trim()) {
-        const answersContainer = document.querySelector('.answers-container');
-        
-        // Create new answer element with background and styling
-        const newAnswer = document.createElement('div');
-        newAnswer.className = 'revealed-answer reveal-animation';
-        newAnswer.textContent = input.value;
-        newAnswer.style.background = '#fff'; // Adding white background for visibility
-        
-        // Add to container
-        answersContainer.appendChild(newAnswer);
-        
-        // Create sparkles
-        createSparkles(newAnswer);
-        
-        // Clear input
-        input.value = '';
+    function handleReveal() {
+        if (input.value.trim()) {
+            const newAnswer = document.createElement('div');
+            newAnswer.className = 'revealed-answer reveal-animation';
+            newAnswer.textContent = input.value;
+            newAnswer.style.position = 'relative'; // Added for sparkle positioning
+            newAnswer.style.background = '#fff';
+            
+            answersContainer.appendChild(newAnswer);
+            createSparkles(newAnswer);
+            input.value = '';
+        }
     }
-}
 
-    // Reveal button event
     revealBtn.addEventListener('click', handleReveal);
-
-    // Allow Enter key to submit
+    
     input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
