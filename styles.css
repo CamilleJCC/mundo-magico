@@ -13,7 +13,7 @@
 .investigation-container {
   min-height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-end;
     background: #faf9f1;
     padding: 20px;
@@ -21,7 +21,9 @@
     color: #333333;
     flex-wrap: nowrap;
 }
-
+.left-col{
+    width:50%;
+}
 .artwork-frame {
     width: 90%;
     max-width: 500px;
