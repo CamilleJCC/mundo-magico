@@ -146,6 +146,10 @@ p {
     .artwork-frame {
         max-width: 89vh;
     }
+
+    p {
+    padding-right: 0em;
+ }
     
     .reveal-btn {
         width: auto;
