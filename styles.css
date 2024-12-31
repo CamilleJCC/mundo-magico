@@ -29,10 +29,13 @@
     cursor: none;
 }
 h1 {
-    font-size:160px;
-    color:#c4e0ff;
-    text-align:left;
-    line-height:170px;
+ font-size: 3vw;
+    color: #c4e0ff;
+    text-align: left;
+    line-height: 1em;
+    width: 33vw;
+    font-weight: normal;
+    margin-bottom: -28px;
 }
 p {
  text-align: left;
