@@ -11,12 +11,12 @@
 }
 
 .investigation-container {
-  min-height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     background: #faf9f1;
-    padding: 20px;
+    padding: 0px 80px 80px;
     touch-action: none;
     color: #333333;
     flex-wrap: nowrap;
