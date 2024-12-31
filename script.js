@@ -2,65 +2,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const magnifier = document.querySelector('.magnifying-glass');
     const artwork = document.querySelector('.artwork');
     const glassEffect = document.querySelector('.glass-effect');
-    let isDragging = false;
-    let startX, startY, initialX, initialY;
-
-    // Magnifying glass drag functionality
-    function startDrag(x, y) {
-        isDragging = true;
-        startX = x;
-        startY = y;
-        initialX = magnifier.offsetLeft;
-        initialY = magnifier.offsetTop;
-    }
-
-    function moveMagnifier(x, y) {
-        if (!isDragging) return;
-        const dx = x - startX;
-        const dy = y - startY;
-        magnifier.style.left = `${initialX + dx}px`;
-        magnifier.style.top = `${initialY + dy}px`;
-        updateZoom(x, y);
-    }
-
-    function stopDrag() {
-        isDragging = false;
-    }
-
-    // Zoom functionality
-    function updateZoom(x, y) {
+    
+    // Set up initial magnifier properties
+    magnifier.style.backgroundImage = `url(${artwork.src})`;
+    magnifier.style.backgroundRepeat = "no-repeat";
+    magnifier.style.backgroundSize = (artwork.width * 2.5) + "px " + (artwork.height * 2.5) + "px";
+    
+    function updateZoom(e) {
         const rect = artwork.getBoundingClientRect();
-        const xPercent = (x - rect.left) / rect.width * 100;
-        const yPercent = (y - rect.top) / rect.height * 100;
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
         
-        glassEffect.style.backgroundImage = `url(${artwork.src})`;
-        glassEffect.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
-        glassEffect.style.backgroundSize = '200%';
+        // Position the magnifier
+        magnifier.style.left = `${x - magnifier.offsetWidth / 2}px`;
+        magnifier.style.top = `${y - magnifier.offsetHeight / 2}px`;
+        
+        // Calculate the background position
+        const bgX = (x / rect.width) * 100;
+        const bgY = (y / rect.height) * 100;
+        
+        magnifier.style.backgroundPosition = `${-x * 1.5}px ${-y * 1.5}px`;
     }
 
     // Mouse events
-    magnifier.addEventListener('mousedown', (e) => {
-        startDrag(e.clientX, e.clientY);
+    artwork.addEventListener('mousemove', (e) => {
+        magnifier.style.display = 'block';
+        updateZoom(e);
     });
 
-    document.addEventListener('mousemove', (e) => {
-        moveMagnifier(e.clientX, e.clientY);
+    artwork.addEventListener('mouseleave', () => {
+        magnifier.style.display = 'none';
     });
-
-    document.addEventListener('mouseup', stopDrag);
 
     // Touch events
-    magnifier.addEventListener('touchstart', (e) => {
+    artwork.addEventListener('touchmove', (e) => {
+        e.preventDefault();
         const touch = e.touches[0];
-        startDrag(touch.clientX, touch.clientY);
+        magnifier.style.display = 'block';
+        updateZoom(touch);
     });
 
-    document.addEventListener('touchmove', (e) => {
-        const touch = e.touches[0];
-        moveMagnifier(touch.clientX, touch.clientY);
+    artwork.addEventListener('touchend', () => {
+        magnifier.style.display = 'none';
     });
-
-    document.addEventListener('touchend', stopDrag);
 
     // Reveal functionality
     const revealBtn = document.querySelector('.reveal-btn');
