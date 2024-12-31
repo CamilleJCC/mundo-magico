@@ -116,7 +116,7 @@
 
 @media (min-width: 768px) {
     .artwork-frame {
-        max-width: 800px;
+        max-width: 70vh;
     }
     
     .reveal-btn {
