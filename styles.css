@@ -105,17 +105,16 @@ p {
 }
 
 .revealed-answer {
-    margin-bottom: 0px;
-    padding: 20px;
-    border-radius: 10px;
+margin-bottom: 0px;
+    padding: 15px 25px;
+    border-radius: 100px;
     font-family: 'InterTight', sans-serif;
-    position: relative;
-    display: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transform-origin: center;
     font-size: 23px;
     width: fit-content;
-    flex: 0 1 auto; /* This allows multiple answers to sit side by side */
+    flex: 0 1 auto;
+    background: linear-gradient(45deg, #b5f0de, #c4e0ff);
 
 }
 .answers-container {
