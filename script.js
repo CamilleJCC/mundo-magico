@@ -53,13 +53,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function getRandomColor() {
+        const colors = [
+            '#b5f0de',
+            '#fab8a1',
+            '#faf7ba',
+            '#c2b2ff'
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
     function handleReveal() {
         if (input.value.trim()) {
             const newAnswer = document.createElement('div');
             newAnswer.className = 'revealed-answer reveal-animation';
             newAnswer.textContent = input.value;
-            newAnswer.style.position = 'relative'; // Added for sparkle positioning
-            newAnswer.style.background = '#fff';
+            newAnswer.style.position = 'relative';
+            newAnswer.style.background = getRandomColor();
             
             answersContainer.appendChild(newAnswer);
             createSparkles(newAnswer);
