@@ -101,7 +101,6 @@ p {
 }
 
 .reveal-btn {
-    width: 100%;
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     border: none;
     padding: 0.9375rem 1.875rem;
