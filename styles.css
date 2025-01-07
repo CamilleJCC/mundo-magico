@@ -58,7 +58,7 @@ p {
     padding-bottom: clamp(1.5rem, 4vw, 2.75rem);
     padding-right: min(20%, 2rem);
     color: var(--secondary-color);
-    line-height: 1.5;
+    line-height: 1.2;
 }
 
 .artwork {
@@ -177,7 +177,7 @@ p {
     .investigation-container {
         grid-template-columns: 1fr 1fr;
         padding: clamp(2rem, 6vw, 5rem);
-        align-items: start;
+        align-items: center;
         gap: 4rem;
     }
 
