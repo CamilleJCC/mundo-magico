@@ -135,6 +135,11 @@ p {
 }
 
 /* Media Queries */
+@media (max-width:768px) {
+    .artwork-frame{
+position:relative;
+    }
+}
 @media (min-width: 768px) {
     .investigation-container {
         flex-direction: row;
