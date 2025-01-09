@@ -181,7 +181,7 @@ background: #c4e0ff;
         grid-template-columns: 1fr 1fr;
         padding: 0rem 4rem;
         align-items: center;
-        gap: 4rem;
+        gap: 2rem;
     }
 
     .left-col {
