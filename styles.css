@@ -198,7 +198,7 @@ background: #c4e0ff;
 
 @media (min-width: 1200px) {
     .investigation-container {
-        gap: 4rem;
+        gap: 2rem;
     }
     
     .artwork-frame {
