@@ -110,6 +110,9 @@ p {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
+.reveal-btn:hover{
+background: #c4e0ff;
+}
 
 .revealed-answer {
     margin-bottom: 0;
