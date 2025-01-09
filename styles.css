@@ -176,7 +176,7 @@ p {
 @media (min-width: 768px) {
     .investigation-container {
         grid-template-columns: 1fr 1fr;
-        padding: clamp(2rem, 6vw, 5rem);
+        padding: 0rem 4rem;
         align-items: center;
         gap: 4rem;
     }
@@ -195,7 +195,7 @@ p {
 
 @media (min-width: 1200px) {
     .investigation-container {
-        gap: 6rem;
+        gap: 4rem;
     }
     
     .artwork-frame {
