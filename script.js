@@ -73,33 +73,40 @@ document.addEventListener('DOMContentLoaded', () => {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
- async function handleReveal() {
-    if (input.value.trim()) {
-        try {
-            // Save to Firebase under 'greta-answers' node
-            const answersRef = ref(db, 'mundo-answers');
-            const newAnswerRef = push(answersRef);
-            
-            await set(newAnswerRef, {
-                answer: input.value,
-                timestamp: new Date().toISOString()
-            });
+    async function handleReveal() {
+        if (input.value.trim()) {
+            try {
+                console.log('Starting save process');
+                const answersRef = ref(db, 'mundo-answers');
+                console.log('Reference created');
+                
+                const newAnswerRef = push(answersRef);
+                console.log('Push reference created');
+                
+                const dataToSave = {
+                    answer: input.value,
+                    timestamp: new Date().toISOString()
+                };
+                console.log('Data prepared:', dataToSave);
+                
+                await set(newAnswerRef, dataToSave);
+                console.log('Data saved successfully');
 
-            // Create visual element
-            const newAnswer = document.createElement('div');
-            newAnswer.className = 'revealed-answer reveal-animation';
-            newAnswer.textContent = input.value;
-            newAnswer.style.position = 'relative';
-            newAnswer.style.background = getRandomColor();
-            
-            answersContainer.appendChild(newAnswer);
-            createSparkles(newAnswer);
-            input.value = '';
-        } catch (error) {
-            console.log('Error saving answer:', error);
+                const newAnswer = document.createElement('div');
+                newAnswer.className = 'revealed-answer reveal-animation';
+                newAnswer.textContent = input.value;
+                newAnswer.style.position = 'relative';
+                newAnswer.style.background = getRandomColor();
+                
+                answersContainer.appendChild(newAnswer);
+                createSparkles(newAnswer);
+                input.value = '';
+            } catch (error) {
+                console.log('Detailed error:', error.message, error.code);
+                throw error;
+            }
         }
     }
-}
 
     revealBtn.addEventListener('click', handleReveal);
     
