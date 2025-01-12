@@ -73,8 +73,19 @@ document.addEventListener('DOMContentLoaded', () => {
         return colors[Math.floor(Math.random() * colors.length)];
     }
 
-    function handleReveal() {
-        if (input.value.trim()) {
+ async function handleReveal() {
+    if (input.value.trim()) {
+        try {
+            // Save to Firebase under 'greta-answers' node
+            const answersRef = ref(db, 'mundo-answers');
+            const newAnswerRef = push(answersRef);
+            
+            await set(newAnswerRef, {
+                answer: input.value,
+                timestamp: new Date().toISOString()
+            });
+
+            // Create visual element
             const newAnswer = document.createElement('div');
             newAnswer.className = 'revealed-answer reveal-animation';
             newAnswer.textContent = input.value;
@@ -84,8 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
             answersContainer.appendChild(newAnswer);
             createSparkles(newAnswer);
             input.value = '';
+        } catch (error) {
+            console.log('Error saving answer:', error);
         }
     }
+}
 
     revealBtn.addEventListener('click', handleReveal);
     
