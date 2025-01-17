@@ -130,7 +130,7 @@ p {
 }
 
 .reveal-btn {
-    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    background: #c4e0ff;
     border: none;
     padding: 0.9375rem 1.875rem;
     border-radius: 1.5625rem;
@@ -140,7 +140,7 @@ p {
     transition: transform 0.3s ease;
 }
 .reveal-btn:hover{
-background: #c4e0ff;
+background: #b5f0de;
 }
 
 .revealed-answer {
