@@ -239,7 +239,7 @@ background: #b5f0de;
 @media (min-width: 768px) {
     .investigation-container {
         grid-template-columns: 1fr 1fr;
-        padding: 0rem 4rem;
+        padding: 0rem 1rem;
         align-items: center;
         gap: 2rem;
     }
