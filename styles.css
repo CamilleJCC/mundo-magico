@@ -165,7 +165,7 @@ background: #b5f0de;
 .tooltip-container {
     position: relative;
     display: inline-block;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 .plus-icon {
@@ -193,6 +193,49 @@ background: #b5f0de;
 .tooltip-container:hover .tooltip-text {
     visibility: visible;
 }
+.plus-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.plus-icon::before,
+.plus-icon::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background: white;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.plus-icon::before {
+    transform: rotate(90deg);
+}
+
+.plus-icon::after {
+    transform: rotate(0deg);
+}
+
+.plus-icon:hover {
+    background: var(--gradient-end);
+    transform: rotate(180deg);
+}
+
+.plus-icon:hover::before,
+.plus-icon:hover::after {
+    width: 14px;
+}
+
 
 @keyframes sparkleOut {
     0% { transform: scale(0); opacity: 1; }
