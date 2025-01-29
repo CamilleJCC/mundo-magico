@@ -476,4 +476,7 @@ font-size: 1.3rem;
     padding-right: 0px;
    
 }
+    .magic-input {
+        height: auto;
+    }
 }
